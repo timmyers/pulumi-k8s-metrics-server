@@ -5,4 +5,5 @@ workflow "Main" {
 
 action "Build and Test" {
   uses = "./.github/action/"
+  secrets = ["NPM_TOKEN"]
 }
