@@ -3,3 +3,4 @@
 yarn
 yarn build
 
+yarn login
