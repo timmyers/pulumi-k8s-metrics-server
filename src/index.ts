@@ -1,8 +1,9 @@
 import * as pulumi from '@pulumi/pulumi';
 import * as k8s from '@pulumi/kubernetes';
 import { CustomResourceOptions } from '@pulumi/pulumi';
-import deployment from './deployment';
-import rbac from './rbac';
+import Deployment from './deployment';
+import Service from './service';
+import Rbac from './rbac';
 
 export interface MetricsServerArgs {
   rbac: {
@@ -13,21 +14,26 @@ export interface MetricsServerArgs {
 }
 
 export default class K8sMetricsServer extends pulumi.ComponentResource {
-  public constructor(name: string, {
-  }: MetricsServerArgs, opts?: pulumi.ComponentResourceOptions) {
+  public constructor(name: string, args: MetricsServerArgs, opts?: pulumi.ComponentResourceOptions) {
     super('k8s:metrics-server', name, { }, opts);
 
     const defaultOptions: CustomResourceOptions = { parent: this };
 
     const namespace = 'kube-system';
 
-    deployment({
-      name,
+    let rbac: Rbac|undefined = undefined;
+    if (args.rbac.create) {
+      const rbac = new Rbac(name, {
+        namespace,
+      }, defaultOptions);
+    }
+
+    const deployment = new Deployment(name, {
       namespace,
-      defaultOptions,
       replicas: 1,
       hostNetwork: false,
       annotations: {},
+      serviceAccountName: rbac ? rbac.serviceAccountName: '',
       securityContext: {
         allowPrivilegeEscalation: false,
         capabilities: { drop: ['all'] },
@@ -40,12 +46,31 @@ export default class K8sMetricsServer extends pulumi.ComponentResource {
         repository: 'gcr.io/google_containers/metrics-server-amd64',
         tag: 'v0.3.2',
       },
-    });
+      livenessProbe: {
+        httpGet: {
+          path: '/healthz',
+          port: 'https',
+          scheme: 'HTTPS',
+        },
+        initialDelaySeconds: 20,
+      },
+      readinessProbe: {
+        httpGet: {
+          path: '/healthz',
+          port: 'https',
+          scheme: 'HTTPS',
+        },
+        initialDelaySeconds: 20,
+      },
+      podDisruptionBudget: {
+        enabled: false,
+      }
+    }, defaultOptions);
 
-    rbac({
-      name,
+    const service = new Service(name, {
       namespace,
-      defaultOptions,
-    });
+      port: 443,
+      type: 'ClusterIP',
+    }, defaultOptions);
   }
 };
