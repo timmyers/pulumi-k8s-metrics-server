@@ -26,6 +26,7 @@ fi
 # Otherwise, increment the patch version, add the -dev tag and some
 # commit metadata. If there's no existing tag, pretend a v0.0.0 was
 # there so we'll produce v0.0.1-dev builds.
+git describe --tags --abbrev=0 "${COMMITISH}"
 if git describe --tags --abbrev=0 "${COMMITISH}" > /dev/null 2>&1; then
     TAG=$(git describe --tags --abbrev=0 "${COMMITISH}")
 else
