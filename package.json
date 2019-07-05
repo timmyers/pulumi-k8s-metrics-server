@@ -1,0 +1,14 @@
+{
+  "name": "pulumi-k8s-metrics-server",
+  "version": "1.0.0",
+  "main": "bin/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@pulumi/kubernetes": "^0.25.1",
+    "@pulumi/pulumi": "^0.17.21",
+    "typescript": "^3.5.2"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}
