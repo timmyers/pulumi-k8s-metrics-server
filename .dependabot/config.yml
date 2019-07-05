@@ -4,3 +4,7 @@ update_configs:
   - package_manager: javascript
     directory: /
     update_schedule: live
+
+  - package_manager: docker
+    directory: /.github/action/
+    update_schedule: live
