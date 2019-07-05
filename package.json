@@ -1,6 +1,6 @@
 {
   "name": "@timmyers/pulumi-k8s-metrics-server",
-  "version": "0.0.2-3",
+  "version": "${VERSION}",
   "main": "bin/index.js",
   "license": "MIT",
   "dependencies": {
