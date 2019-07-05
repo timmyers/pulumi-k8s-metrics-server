@@ -1,2 +1,4 @@
 bin
 node_modules
+.npmrc
+yarn-error.log
