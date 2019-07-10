@@ -7,33 +7,56 @@ import Rbac from './rbac';
 import Psp from './psp';
 
 export interface MetricsServerArgs {
-  rbac: {
-    create: boolean; // Enable Role-based authentication
+  rbac?: {
+    create?: boolean; // Enable Role-based authentication
     pspEnabled?: boolean; // Enable pod security policy support
+  },
+  apiService?: {
+    create?: boolean;
   },
   // deployment: DeploymentArgs;
 }
 
+const defaults = (args: MetricsServerArgs): MetricsServerArgs => {
+  if (args.rbac === undefined) {
+    args.rbac = { create: true, pspEnabled: false };
+  } else {
+    if (args.rbac.create === undefined) args.rbac.create = true;
+    if (args.rbac.pspEnabled === undefined) args.rbac.pspEnabled = false;
+  }
+
+  if (args.apiService === undefined) {
+    args.apiService = { create: true };
+  } else {
+    if (args.apiService.create === undefined) args.apiService.create = true;
+  }
+
+  return args;
+}
+
 export default class K8sMetricsServer extends pulumi.ComponentResource {
-  public constructor(name: string, args: MetricsServerArgs, opts?: pulumi.ComponentResourceOptions) {
+  public constructor(name: string, argsIn: MetricsServerArgs, opts?: pulumi.ComponentResourceOptions) {
     super('k8s:metrics-server', name, { }, opts);
 
     const defaultOptions: CustomResourceOptions = { parent: this };
 
+    const args = defaults(argsIn);
     const namespace = 'kube-system';
 
     let rbac: Rbac|undefined = undefined;
-    if (args.rbac.create) {
-      rbac = new Rbac(name, {
-        namespace,
-        pspEnabled: args.rbac.pspEnabled,
-      }, defaultOptions);
-    }
+    if (args.rbac) {
+      if (args.rbac.create) {
+        rbac = new Rbac(name, {
+          namespace,
+          pspEnabled: args.rbac.pspEnabled,
+        }, defaultOptions);
+      }
 
-    if (args.rbac.pspEnabled) {
-      const psp = new Psp(name, {
-        namespace,
-      }, defaultOptions);
+      if (args.rbac.pspEnabled) {
+        const psp = new Psp(name, {
+          namespace,
+        }, defaultOptions);
+      }
     }
 
     const deployment = new Deployment(name, {
@@ -77,6 +100,7 @@ export default class K8sMetricsServer extends pulumi.ComponentResource {
 
     const service = new Service(name, {
       namespace,
+      createApiService: args.apiService && args.apiService.create,
       port: 443,
       type: 'ClusterIP',
     }, defaultOptions);
