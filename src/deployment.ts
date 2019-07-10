@@ -5,6 +5,8 @@ import * as kubeTypes from '@pulumi/kubernetes/types/input'
 interface PDBDisabled { enabled: false };
 interface PDBEnabled { enabled: true, config: kubeTypes.policy.v1beta1.PodDisruptionBudget };
 
+export type PodDisruptionBudgetArgs = PDBDisabled | PDBEnabled;
+
 export interface DeploymentArgs {
   namespace: pulumi.Input<string>;
   replicas: pulumi.Input<number>;
@@ -18,11 +20,12 @@ export interface DeploymentArgs {
     repository: pulumi.Input<string>;
     tag: pulumi.Input<string>
   };
-  podDisruptionBudget: PDBDisabled | PDBEnabled;
+  podDisruptionBudget: PodDisruptionBudgetArgs;
 }
 
 export default class Deployment extends pulumi.ComponentResource {
   public deployment: k8s.apps.v1.Deployment;
+  public podDisruptionBudget: undefined | k8s.policy.v1beta1.PodDisruptionBudget;
 
   public constructor(name: string, args: DeploymentArgs, opts?: pulumi.ComponentResourceOptions) {
     super('k8s:metrics-server:deployment', name, { }, opts);
@@ -88,11 +91,16 @@ export default class Deployment extends pulumi.ComponentResource {
         args.podDisruptionBudget.config,
         defaultOptions
       );
+      this.podDisruptionBudget = pdb;
+    } else {
+      this.podDisruptionBudget = undefined;
     }
 
+    // Register outputs
     this.deployment = deployment;
     this.registerOutputs({
       deployment: this.deployment,
+      podDisruptionBudget: this.podDisruptionBudget,
     });
   }
 }

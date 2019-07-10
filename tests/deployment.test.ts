@@ -18,3 +18,28 @@ test('Host network setting works as expected', () => {
     expect(hostNetwork).toBe(true);
   });
 });
+
+test('Pod disruption budget is disabled by default', () => {
+  const server = new K8sMetricsServer('metrics-server', {});
+
+  expect(server.podDisruptionBudget).toBeUndefined()
+});
+
+test('Pod disruption budget setting works as expected', () => {
+  const MIN_AVAILABLE = 1;
+  const server = new K8sMetricsServer('metrics-server', {
+    podDisruptionBudget: {
+      enabled: true,
+      config: {
+        spec: {
+          minAvailable: MIN_AVAILABLE,
+        },
+      },
+    },
+  });
+
+  expect(server.podDisruptionBudget).toBeDefined()
+  server.podDisruptionBudget.spec.minAvailable.apply(minAvailable => {
+    expect(minAvailable).toBe(MIN_AVAILABLE);
+  })
+});

@@ -1,7 +1,7 @@
 import * as pulumi from '@pulumi/pulumi';
 import * as k8s from '@pulumi/kubernetes';
 import { CustomResourceOptions } from '@pulumi/pulumi';
-import Deployment from './deployment';
+import Deployment,  {PodDisruptionBudgetArgs } from './deployment';
 import Service from './service';
 import Rbac from './rbac';
 import Psp from './psp';
@@ -17,6 +17,7 @@ export interface MetricsServerArgs {
   hostNetwork?: {
     enabled?: boolean;
   },
+  podDisruptionBudget?: PodDisruptionBudgetArgs
   // deployment: DeploymentArgs;
 }
 
@@ -40,11 +41,16 @@ const defaults = (args: MetricsServerArgs): MetricsServerArgs => {
     if (args.hostNetwork.enabled === undefined) args.hostNetwork.enabled = false;
   }
 
+  if (args.podDisruptionBudget === undefined) {
+    args.podDisruptionBudget = { enabled: false };
+  }
+
   return args;
 }
 
 export default class K8sMetricsServer extends pulumi.ComponentResource {
   public deployment: k8s.apps.v1.Deployment;
+  public podDisruptionBudget: undefined | k8s.policy.v1beta1.PodDisruptionBudget;
 
   public constructor(name: string, argsIn: MetricsServerArgs, opts?: pulumi.ComponentResourceOptions) {
     super('k8s:metrics-server', name, { }, opts);
@@ -104,9 +110,7 @@ export default class K8sMetricsServer extends pulumi.ComponentResource {
         },
         initialDelaySeconds: 20,
       },
-      podDisruptionBudget: {
-        enabled: false,
-      }
+      podDisruptionBudget: args.podDisruptionBudget,
     }, defaultOptions);
 
     const service = new Service(name, {
@@ -118,6 +122,7 @@ export default class K8sMetricsServer extends pulumi.ComponentResource {
 
     // Register outputs
     this.deployment = deployment.deployment;
+    this.podDisruptionBudget = deployment.podDisruptionBudget
     this.registerOutputs({
       deployment: this.deployment
     });
