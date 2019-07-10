@@ -4,6 +4,7 @@ import * as kubeTypes from '@pulumi/kubernetes/types/input'
 
 export interface RbacArgs {
   namespace: string;
+  pspEnabled: boolean;
 }
 
 export default class Rbac extends pulumi.ComponentResource {
@@ -14,6 +15,21 @@ export default class Rbac extends pulumi.ComponentResource {
 
     const defaultOptions: pulumi.CustomResourceOptions = { parent: this };
 
+    const clusterRoleRules: kubeTypes.rbac.v1.PolicyRule[] = [{
+      apiGroups: [''],
+      resources: ['pods', 'nodes', 'nodes/stats'],
+      verbs: ['get', 'list', 'watch']
+    }];
+
+    if (args.pspEnabled) {
+      clusterRoleRules.push({
+        apiGroups: ['extensions'],
+        resources: ['podsecuritypolicies'],
+        resourceNames: ['priviledged-metrics-server'],
+        verbs: ['use'],
+      });
+    }
+
     const clusterRole = new k8s.rbac.v1.ClusterRole(`${name}-clusterRole`, {
       metadata: {
         name: 'system:metrics-server',
@@ -21,11 +37,7 @@ export default class Rbac extends pulumi.ComponentResource {
           app: name,
         }
       },
-      rules: [{
-        apiGroups: [''],
-        resources: ['pods', 'nodes', 'nodes/stats'],
-        verbs: ['get', 'list', 'watch']
-      }]
+      rules: clusterRoleRules,
     }, defaultOptions);
 
     const aggregatedMetricsReaderClusterRole = new k8s.rbac.v1.ClusterRole(`${name}-aggregatedMetricsReaderClusterRole`, {

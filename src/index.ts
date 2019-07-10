@@ -4,11 +4,12 @@ import { CustomResourceOptions } from '@pulumi/pulumi';
 import Deployment from './deployment';
 import Service from './service';
 import Rbac from './rbac';
+import Psp from './psp';
 
 export interface MetricsServerArgs {
   rbac: {
     create: boolean; // Enable Role-based authentication
-    // pspEnabled: boolean; // Enable pod security policy support
+    pspEnabled?: boolean; // Enable pod security policy support
   },
   // deployment: DeploymentArgs;
 }
@@ -24,6 +25,13 @@ export default class K8sMetricsServer extends pulumi.ComponentResource {
     let rbac: Rbac|undefined = undefined;
     if (args.rbac.create) {
       rbac = new Rbac(name, {
+        namespace,
+        pspEnabled: args.rbac.pspEnabled,
+      }, defaultOptions);
+    }
+
+    if (args.rbac.pspEnabled) {
+      const psp = new Psp(name, {
         namespace,
       }, defaultOptions);
     }
