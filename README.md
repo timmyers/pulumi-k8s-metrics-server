@@ -1,5 +1,5 @@
-<h1 align="center" style="border-bottom: none;">🍹📈 pulumi-k8s-metrics-server</h1>
-<!-- # pulumi-k8s-metrics-server -->
+<h1 align="center">🍹📈 pulumi-k8s-metrics-server</h1>
+
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 A [pulumi](https://www.pulumi.com) module for instantiating [Kubernetes Metrics Servers](https://github.com/kubernetes-incubator/metrics-server).
