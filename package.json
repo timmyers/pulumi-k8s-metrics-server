@@ -32,5 +32,12 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "keywords": [
+    "pulumi",
+    "kubernetes",
+    "metrics-server",
+    "cloud-native",
+    "infrastructure-as-code"
+  ]
 }
