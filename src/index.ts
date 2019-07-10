@@ -23,7 +23,7 @@ export default class K8sMetricsServer extends pulumi.ComponentResource {
 
     let rbac: Rbac|undefined = undefined;
     if (args.rbac.create) {
-      const rbac = new Rbac(name, {
+      rbac = new Rbac(name, {
         namespace,
       }, defaultOptions);
     }
