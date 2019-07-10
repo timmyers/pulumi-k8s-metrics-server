@@ -18,7 +18,8 @@ export interface DeploymentArgs {
   readinessProbe: kubeTypes.core.v1.Probe;
   image: {
     repository: pulumi.Input<string>;
-    tag: pulumi.Input<string>
+    tag: pulumi.Input<string>;
+    pullPolicy: pulumi.Input<string>;
   };
   podDisruptionBudget: PodDisruptionBudgetArgs;
 }
@@ -60,6 +61,7 @@ export default class Deployment extends pulumi.ComponentResource {
               name: 'metrics-server',
               securityContext: args.securityContext,
               image: `${args.image.repository}:${args.image.tag}`,
+              imagePullPolicy: args.image.pullPolicy,
               command: [
                 '/metrics-server',
                 '--cert-dir=/tmp',
