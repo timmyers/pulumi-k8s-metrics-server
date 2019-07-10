@@ -10,7 +10,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "PULUMI_TEST_MODE=true PULUMI_NODEJS_STACK=test PULUMI_NODEJS_PROJECT=test jest",
+    "test": "PULUMI_TEST_MODE=true PULUMI_NODEJS_STACK=test PULUMI_NODEJS_PROJECT=test jest --coverage",
+    "coverage": "codecov",
     "semantic-release": "semantic-release",
     "commit": "git-cz"
   },
@@ -22,6 +23,7 @@
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-typescript": "^7.3.3",
     "@types/jest": "^24.0.15",
+    "codecov": "^3.5.0",
     "cz-conventional-changelog": "^2.1.0",
     "jest": "^24.8.0",
     "semantic-release": "^15.13.18"

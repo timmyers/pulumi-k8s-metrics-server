@@ -39,8 +39,11 @@ regions.forEach((region): void => {
 ```
 
 ## Development
-### Getting Started
+### Installation
 Clone the repo, then:
 `yarn`
+
+### Running tests
+`yarn test`
 
 _More coming soon_
