@@ -22,6 +22,8 @@ export interface DeploymentArgs {
 }
 
 export default class Deployment extends pulumi.ComponentResource {
+  public deployment: k8s.apps.v1.Deployment;
+
   public constructor(name: string, args: DeploymentArgs, opts?: pulumi.ComponentResourceOptions) {
     super('k8s:metrics-server:deployment', name, { }, opts);
 
@@ -87,5 +89,10 @@ export default class Deployment extends pulumi.ComponentResource {
         defaultOptions
       );
     }
+
+    this.deployment = deployment;
+    this.registerOutputs({
+      deployment: this.deployment,
+    });
   }
 }

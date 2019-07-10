@@ -14,6 +14,9 @@ export interface MetricsServerArgs {
   apiService?: {
     create?: boolean;
   },
+  hostNetwork?: {
+    enabled?: boolean;
+  },
   // deployment: DeploymentArgs;
 }
 
@@ -31,10 +34,18 @@ const defaults = (args: MetricsServerArgs): MetricsServerArgs => {
     if (args.apiService.create === undefined) args.apiService.create = true;
   }
 
+  if (args.hostNetwork === undefined) {
+    args.hostNetwork = { enabled: false };
+  } else {
+    if (args.hostNetwork.enabled === undefined) args.hostNetwork.enabled = false;
+  }
+
   return args;
 }
 
 export default class K8sMetricsServer extends pulumi.ComponentResource {
+  public deployment: k8s.apps.v1.Deployment;
+
   public constructor(name: string, argsIn: MetricsServerArgs, opts?: pulumi.ComponentResourceOptions) {
     super('k8s:metrics-server', name, { }, opts);
 
@@ -104,5 +115,11 @@ export default class K8sMetricsServer extends pulumi.ComponentResource {
       port: 443,
       type: 'ClusterIP',
     }, defaultOptions);
+
+    // Register outputs
+    this.deployment = deployment.deployment;
+    this.registerOutputs({
+      deployment: this.deployment
+    });
   }
 };

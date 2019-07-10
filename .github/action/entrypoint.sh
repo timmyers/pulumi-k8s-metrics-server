@@ -2,4 +2,5 @@
 
 yarn
 yarn build
+yarn test
 yarn semantic-release

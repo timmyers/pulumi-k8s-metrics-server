@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "test": "PULUMI_TEST_MODE=true PULUMI_NODEJS_STACK=test PULUMI_NODEJS_PROJECT=test jest",
     "semantic-release": "semantic-release",
     "commit": "git-cz"
   },
@@ -18,7 +19,11 @@
     "url": "https://github.com/timmyers/pulumi-k8s-metrics-server.git"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.15",
     "cz-conventional-changelog": "^2.1.0",
+    "jest": "^24.8.0",
     "semantic-release": "^15.13.18"
   },
   "config": {
