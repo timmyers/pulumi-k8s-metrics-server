@@ -6,7 +6,7 @@
   "dependencies": {
     "@pulumi/kubernetes": "^0.25.1",
     "@pulumi/pulumi": "^0.17.21",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.3"
   },
   "scripts": {
     "build": "tsc"
