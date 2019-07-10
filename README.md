@@ -14,9 +14,7 @@ Aims to be a full-featured *pulumi native* alternative to the [helm chart](https
 ```typescript
 import K8sMetricsServer from '@timmyers/pulumi-k8s-metrics-server';
 
-const metricsServer = new K8sMetricsServer('metrics-server', {
-  rbac: { create: true },
-});
+const metricsServer = new K8sMetricsServer('metrics-server', {});
 ```
 
 ## Development
