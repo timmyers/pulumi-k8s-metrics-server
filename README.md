@@ -17,6 +17,27 @@ import K8sMetricsServer from '@timmyers/pulumi-k8s-metrics-server';
 const metricsServer = new K8sMetricsServer('metrics-server', {});
 ```
 
+## Examples
+Instantiate an EKS cluster in multiple AWS regions, and create a `metrics-server` in each.
+```typescript
+import * as aws from '@pulumi/aws';
+import K8sMetricsServer from '@timmyers/pulumi-k8s-metrics-server';
+
+const regions: aws.Region[] = [
+  'us-west-2', // Oregon
+  'eu-central-1', // Frankfurt
+];
+
+regions.forEach((region): void => {
+  const provider = new aws.Provider(`provider-${region}`, { region });
+  const defaultOpts: pulumi.ComponentResourceOptions = { provider };
+  const cluster = new eks.Cluster(`cluster-${region}`, {}, defaultOpts);
+
+  const k8sDefaultOpts = { providers: { kubernetes: cluster.provider } };
+  const metricsServer = new K8sMetricsServer(name, {}, k8sDefaultOpts);
+});
+```
+
 ## Development
 ### Getting Started
 Clone the repo, then:
