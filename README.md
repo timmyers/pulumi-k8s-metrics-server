@@ -14,10 +14,13 @@ Aims to be a full-featured *pulumi native* alternative to the [helm chart](https
 `yarn add @timmyers/pulumi-k8s-metrics-server`
 
 ```typescript
-import K8sMetricsServer from '@timmyers/pulumi-k8s-metrics-server';
+import K8sMetricsServer, { MetricsServerArgs } from '@timmyers/pulumi-k8s-metrics-server';
 
-const metricsServer = new K8sMetricsServer('metrics-server', {});
+const args: MetricsServerArgs = {};
+const metricsServer = new K8sMetricsServer('metrics-server', args);
 ```
+
+The module exposes an interface `MetricsServerArgs`, which exposes many options that can be set, similar to the helm chart.
 
 ## Examples
 Instantiate an EKS cluster in multiple AWS regions, and create a `metrics-server` in each.
