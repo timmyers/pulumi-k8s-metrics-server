@@ -43,3 +43,11 @@ test('Pod disruption budget setting works as expected', () => {
     expect(minAvailable).toBe(MIN_AVAILABLE);
   })
 });
+
+test('Image details will default', () => {
+  const server = new K8sMetricsServer('metrics-server', {
+    image: {},
+  });
+
+  expect(server.deployment).toBeDefined();
+});

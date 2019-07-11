@@ -9,12 +9,15 @@ export interface ServiceArgs {
 }
 
 export default class Service extends pulumi.ComponentResource {
+  public service: k8s.core.v1.Service;
+  public apiService: undefined | k8s.apiregistration.v1beta1.APIService;
+
   public constructor(name: string, args: ServiceArgs, opts?: pulumi.ComponentResourceOptions) {
     super('k8s:metrics-server:service', name, { }, opts);
 
     const defaultOptions: pulumi.CustomResourceOptions = { parent: this };
 
-    const service = new k8s.core.v1.Service(`${name}-service`, {
+    this.service = new k8s.core.v1.Service(`${name}-service`, {
       metadata: {
         namespace: args.namespace,
         labels: {
@@ -35,7 +38,7 @@ export default class Service extends pulumi.ComponentResource {
     }, defaultOptions);
 
     if (args.createApiService) {
-      const apiService = new k8s.apiregistration.v1beta1.APIService(`${name}-apiService`, {
+      this.apiService = new k8s.apiregistration.v1beta1.APIService(`${name}-apiService`, {
         metadata: {
           name: 'v1beta1.metrics.k8s.io',
           labels: {
@@ -44,7 +47,7 @@ export default class Service extends pulumi.ComponentResource {
         },
         spec: {
           service: {
-            name: service.metadata.name,
+            name: this.service.metadata.name,
             namespace: args.namespace,
           },
           group: 'metrics.k8s.io',
@@ -54,6 +57,13 @@ export default class Service extends pulumi.ComponentResource {
           versionPriority: 100,
         },
       }, defaultOptions);
+    } else {
+      this.apiService = undefined;
     }
+
+    this.registerOutputs({
+      service: this.service,
+      apiService: this.apiService,
+    });
   }
 }

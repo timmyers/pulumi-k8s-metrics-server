@@ -8,7 +8,8 @@ export interface RbacArgs {
 }
 
 export default class Rbac extends pulumi.ComponentResource {
-  public serviceAccountName: pulumi.Output<string>;
+  public serviceAccount: k8s.core.v1.ServiceAccount;
+  public clusterRole: k8s.rbac.v1.ClusterRole;
 
   public constructor(name: string, args: RbacArgs, opts?: pulumi.ComponentResourceOptions) {
     super('k8s:metrics-server:rbac', name, { }, opts);
@@ -30,7 +31,7 @@ export default class Rbac extends pulumi.ComponentResource {
       });
     }
 
-    const clusterRole = new k8s.rbac.v1.ClusterRole(`${name}-clusterRole`, {
+    this.clusterRole = new k8s.rbac.v1.ClusterRole(`${name}-clusterRole`, {
       metadata: {
         name: 'system:metrics-server',
         labels: {
@@ -57,7 +58,7 @@ export default class Rbac extends pulumi.ComponentResource {
       }]
     }, defaultOptions);
 
-    const serviceAccount = new k8s.core.v1.ServiceAccount(`${name}-serviceAccount`, {
+    this.serviceAccount = new k8s.core.v1.ServiceAccount(`${name}-serviceAccount`, {
       metadata: {
         name: 'metrics-server',
         namespace: args.namespace,
@@ -77,11 +78,11 @@ export default class Rbac extends pulumi.ComponentResource {
       roleRef: {
         apiGroup: 'rbac.authorization.k8s.io',
         kind: 'ClusterRole',
-        name: clusterRole.metadata.name,
+        name: this.clusterRole.metadata.name,
       },
       subjects: [{
         kind: 'ServiceAccount',
-        name: serviceAccount.metadata.name,
+        name: this.serviceAccount.metadata.name,
         namespace: args.namespace,
       }]
     }, defaultOptions);
@@ -101,7 +102,7 @@ export default class Rbac extends pulumi.ComponentResource {
       },
       subjects: [{
         kind: 'ServiceAccount',
-        name: serviceAccount.metadata.name,
+        name: this.serviceAccount.metadata.name,
         namespace: args.namespace,
       }]
     }, defaultOptions);
@@ -120,15 +121,14 @@ export default class Rbac extends pulumi.ComponentResource {
       },
       subjects: [{
         kind: 'ServiceAccount',
-        name: serviceAccount.metadata.name,
+        name: this.serviceAccount.metadata.name,
         namespace: args.namespace,
       }],
     }, defaultOptions);
 
-    this.serviceAccountName = serviceAccount.metadata.name;
-
     this.registerOutputs({
-      serviceAccountName: this.serviceAccountName,
-    })
+      serviceAccount: this.serviceAccount,
+      clusterRole: this.clusterRole,
+    });
   }
 }

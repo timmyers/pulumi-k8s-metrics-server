@@ -115,6 +115,10 @@ const defaults = (args: MetricsServerArgs): MetricsServerArgs => {
 export default class K8sMetricsServer extends pulumi.ComponentResource {
   public deployment: k8s.apps.v1.Deployment;
   public podDisruptionBudget: undefined | k8s.policy.v1beta1.PodDisruptionBudget;
+  public service: k8s.core.v1.Service;
+  public apiService: undefined | k8s.apiregistration.v1beta1.APIService;
+  public serviceAccount: undefined | k8s.core.v1.ServiceAccount;
+  public clusterRole: undefined | k8s.rbac.v1.ClusterRole;
 
   public constructor(name: string, argsIn: MetricsServerArgs, opts?: pulumi.ComponentResourceOptions) {
     super('k8s:metrics-server', name, { }, opts);
@@ -144,7 +148,7 @@ export default class K8sMetricsServer extends pulumi.ComponentResource {
       replicas: args.replicas,
       hostNetwork: args.hostNetwork.enabled,
       annotations: {},
-      serviceAccountName: rbac ? rbac.serviceAccountName: '',
+      serviceAccountName: rbac ? rbac.serviceAccount.metadata.name: '',
       securityContext: args.securityContext,
       image: {
         repository: args.image.repository,
@@ -166,8 +170,18 @@ export default class K8sMetricsServer extends pulumi.ComponentResource {
     // Register outputs
     this.deployment = deployment.deployment;
     this.podDisruptionBudget = deployment.podDisruptionBudget
+    this.service = service.service;
+    this.apiService = service.apiService;
+    this.serviceAccount = rbac ? rbac.serviceAccount : undefined;
+    this.clusterRole = rbac ? rbac.clusterRole : undefined;
+
     this.registerOutputs({
-      deployment: this.deployment
+      deployment: this.deployment,
+      podDisruptionBudget: this.podDisruptionBudget,
+      service: this.service,
+      apiService: this.apiService,
+      serviceAccount: this.serviceAccount,
+      clusterRole: this.clusterRole,
     });
   }
 };
