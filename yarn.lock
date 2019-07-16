@@ -968,10 +968,10 @@
     shell-quote "^1.6.1"
     tmp "^0.0.33"
 
-"@pulumi/pulumi@^0.17.18", "@pulumi/pulumi@^0.17.21":
-  version "0.17.21"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.17.21.tgz#a21460e8284532319ab0e00525905f91d1b8da17"
-  integrity sha512-/0xt1Cy+aRcMZdTeA6d2Zi4496HBJezrdOPrvbuYBBNRH6jC3VTqUuQLWpjj0GcwfYKlSBN3DLMGCyeEWmmMWg==
+"@pulumi/pulumi@^0.17.18", "@pulumi/pulumi@^0.17.22":
+  version "0.17.22"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.17.22.tgz#fcd598fb00a205313b292268fb9c25335a56baaa"
+  integrity sha512-sfKLUAxaU9xYsDLDu3AKW7Mqx02nMlUeWXIUsrGDY+P4hIYmAOoPU2yFRRB8/7mzmvZQgIMSkwBSZfpFBaFA2g==
   dependencies:
     "@pulumi/query" "^0.3.0"
     deasync "^0.1.15"
