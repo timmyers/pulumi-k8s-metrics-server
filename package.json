@@ -24,7 +24,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@types/jest": "^24.0.15",
     "codecov": "^3.5.0",
-    "cz-conventional-changelog": "^2.1.0",
+    "cz-conventional-changelog": "^3.0.2",
     "jest": "^24.8.0",
     "semantic-release": "^15.13.18"
   },
