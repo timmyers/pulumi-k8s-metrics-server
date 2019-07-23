@@ -56,7 +56,10 @@ export default class Service extends pulumi.ComponentResource {
           groupPriorityMinimum: 100,
           versionPriority: 100,
         },
-      }, defaultOptions);
+      }, {
+        ...defaultOptions,
+        deleteBeforeReplace: true,
+      });
     } else {
       this.apiService = undefined;
     }

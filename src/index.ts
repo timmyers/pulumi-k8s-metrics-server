@@ -33,7 +33,7 @@ export interface MetricsServerArgs {
 }
 
 const defaults = (args: MetricsServerArgs): MetricsServerArgs => {
-  if (args.namespace ===  undefined) {
+  if (args.namespace === undefined) {
     args.namespace = 'kube-system';
   }
 

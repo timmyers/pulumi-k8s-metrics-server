@@ -1,6 +1,22 @@
 
 import K8sMetricsServer from '../src';
 
+test('Namespace defaults to kube-system', () => {
+  const server = new K8sMetricsServer('metrics-server', {});
+
+  server.deployment.metadata.namespace.apply(namespace => {
+    expect(namespace).toBe('kube-system');
+  });
+});
+
+test('Namespace option works as expected', () => {
+  const server = new K8sMetricsServer('metrics-server', { namespace: 'default' });
+
+  server.deployment.metadata.namespace.apply(namespace => {
+    expect(namespace).toBe('default');
+  });
+});
+
 test('Host network is disabled by default', () => {
   const server = new K8sMetricsServer('metrics-server', {});
 
