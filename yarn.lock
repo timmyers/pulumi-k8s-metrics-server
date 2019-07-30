@@ -1052,30 +1052,10 @@
     shell-quote "^1.6.1"
     tmp "^0.0.33"
 
-"@pulumi/pulumi@^0.17.18":
-  version "0.17.23"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.17.23.tgz#32b5fae0479821810d547d958dd84b382856ac96"
-  integrity sha512-uw+PeX/8A8AQHBUQ3NPTaMN91/TUhYVgLppTr756vKVUBOvQyNWzij6I+pdrFeFyvjqqalpFI6/OpepaPusxMg==
-  dependencies:
-    "@pulumi/query" "^0.3.0"
-    deasync "^0.1.15"
-    google-protobuf "^3.5.0"
-    grpc "1.21.1"
-    minimist "^1.2.0"
-    normalize-package-data "^2.4.0"
-    protobufjs "^6.8.6"
-    read-package-tree "^5.3.1"
-    require-from-string "^2.0.1"
-    semver "^6.1.0"
-    source-map-support "^0.4.16"
-    ts-node "^7.0.0"
-    typescript "^3.0.0"
-    upath "^1.1.0"
-
-"@pulumi/pulumi@^0.17.25":
-  version "0.17.25"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.17.25.tgz#b3391eecf022efaf2470069fa504ab8e1822e331"
-  integrity sha512-BalQpFG2T3gxiI5luzu/sleNBfe5AOt9fjRihO6fOC06V241iBiBfO/Ez17cC4aj5SLtGtU+lk/iRv++wzhDJQ==
+"@pulumi/pulumi@^0.17.18", "@pulumi/pulumi@^0.17.27":
+  version "0.17.27"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.17.27.tgz#74a4ccd29dc184ebcbfd88e03ae931100b191654"
+  integrity sha512-n3B8/EUj0wcx84LrhiY9/c0ydqKYbNt4BPKjxSfhKsrneOP5WCJ+NkKraaZp7hrY/8rNGyx3RyBzVeDyRM6ZzQ==
   dependencies:
     "@pulumi/query" "^0.3.0"
     deasync "^0.1.15"
