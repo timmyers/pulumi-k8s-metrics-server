@@ -22,7 +22,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-typescript": "^7.3.3",
-    "@types/jest": "^24.0.16",
+    "@types/jest": "^24.0.17",
     "codecov": "^3.5.0",
     "cz-conventional-changelog": "^3.0.2",
     "jest": "^24.8.0",
