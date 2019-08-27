@@ -4,7 +4,7 @@
   "main": "bin/index.js",
   "license": "MIT",
   "dependencies": {
-    "@pulumi/kubernetes": "^1.0.0-beta.1",
+    "@pulumi/kubernetes": "^1.0.0-beta.2",
     "@pulumi/pulumi": "^1.0.0-beta.4",
     "typescript": "^3.5.3"
   },
