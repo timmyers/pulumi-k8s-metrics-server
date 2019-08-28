@@ -1056,12 +1056,12 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@pulumi/kubernetes@^0.25.6":
-  version "0.25.6"
-  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-0.25.6.tgz#524f0bd3d77ed2804ff34ae375f8670e619a41d7"
-  integrity sha512-h0RH1SRu/wsaYd0Dj9ZW3T0Zzrs0rM3QCbG/0+JtyfOeEWEWyPkFmU3XIr5kMEiVTMpjO0jv/ZFlvHDfusY0og==
+"@pulumi/kubernetes@^1.0.0-beta.1":
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-1.0.0-beta.2.tgz#c8e13b5b389faf2b5f46298372b21ec065890a90"
+  integrity sha512-P+PrsvBjDouaytn24pp2zkmoC8CpKDp6e0ZvEyx5OFUAJ7S9+MHuSKDNk63Liu5coC7t616qJjHa/rgv4XqM8Q==
   dependencies:
-    "@pulumi/pulumi" "^0.17.18"
+    "@pulumi/pulumi" "^1.0.0-beta"
     "@types/glob" "^5.0.35"
     "@types/js-yaml" "^3.11.2"
     "@types/node-fetch" "^2.1.4"
@@ -1072,10 +1072,10 @@
     shell-quote "^1.6.1"
     tmp "^0.0.33"
 
-"@pulumi/pulumi@^0.17.18", "@pulumi/pulumi@^0.17.28":
-  version "0.17.28"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.17.28.tgz#26f27c0075685b98647263565bfe8bb12adc0542"
-  integrity sha512-pVKahH9Ryl6wIpzdOKjsu2gEshDCA7elB34paJpPXw+3ARViSPri7y/2uTdmMRg36jsbrOdNGEohKJEqIZLioA==
+"@pulumi/pulumi@^1.0.0-beta", "@pulumi/pulumi@^1.0.0-rc.1":
+  version "1.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-1.0.0-rc.1.tgz#f04dbd8506d13502e217b8273a44d0ef98bafd48"
+  integrity sha512-eapuDr05WIC5qvGsRlTUBc/o5LPpUGIo/eWDVxM9OjqbX7kfWDWl5jSXzJet2ZyKd0oMYx+asubz0JnQ8ib64w==
   dependencies:
     "@pulumi/query" "^0.3.0"
     deasync "^0.1.15"
