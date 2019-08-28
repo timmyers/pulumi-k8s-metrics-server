@@ -1056,12 +1056,12 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@pulumi/kubernetes@^0.25.6":
-  version "0.25.6"
-  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-0.25.6.tgz#524f0bd3d77ed2804ff34ae375f8670e619a41d7"
-  integrity sha512-h0RH1SRu/wsaYd0Dj9ZW3T0Zzrs0rM3QCbG/0+JtyfOeEWEWyPkFmU3XIr5kMEiVTMpjO0jv/ZFlvHDfusY0og==
+"@pulumi/kubernetes@^1.0.0-beta.1":
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-1.0.0-beta.2.tgz#c8e13b5b389faf2b5f46298372b21ec065890a90"
+  integrity sha512-P+PrsvBjDouaytn24pp2zkmoC8CpKDp6e0ZvEyx5OFUAJ7S9+MHuSKDNk63Liu5coC7t616qJjHa/rgv4XqM8Q==
   dependencies:
-    "@pulumi/pulumi" "^0.17.18"
+    "@pulumi/pulumi" "^1.0.0-beta"
     "@types/glob" "^5.0.35"
     "@types/js-yaml" "^3.11.2"
     "@types/node-fetch" "^2.1.4"
@@ -1072,10 +1072,10 @@
     shell-quote "^1.6.1"
     tmp "^0.0.33"
 
-"@pulumi/pulumi@^0.17.18", "@pulumi/pulumi@^0.17.28":
-  version "0.17.28"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.17.28.tgz#26f27c0075685b98647263565bfe8bb12adc0542"
-  integrity sha512-pVKahH9Ryl6wIpzdOKjsu2gEshDCA7elB34paJpPXw+3ARViSPri7y/2uTdmMRg36jsbrOdNGEohKJEqIZLioA==
+"@pulumi/pulumi@^1.0.0-beta", "@pulumi/pulumi@^1.0.0-beta.4":
+  version "1.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-1.0.0-beta.4.tgz#da2d75c65cc007b3692f403dcba9712b53dff02a"
+  integrity sha512-1mpUyFwpxFktxQRVULXLOKlHo9IeZPl7SDkkOkx3Syay6DDduvwyfpkf2vFo1b16nT8SaDo854dhuX7EttfEtA==
   dependencies:
     "@pulumi/query" "^0.3.0"
     deasync "^0.1.15"
@@ -7577,10 +7577,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.0.0, typescript@^3.5.3:
-  version "3.5.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.3.tgz#c830f657f93f1ea846819e929092f5fe5983e977"
-  integrity sha512-ACzBtm/PhXBDId6a6sDJfroT2pOWt/oOnk4/dElG5G33ZL776N3Y6/6bKZJBFpd+b05F3Ct9qDjMeJmRWtE2/g==
+typescript@^3.0.0, typescript@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.6.2.tgz#105b0f1934119dde543ac8eb71af3a91009efe54"
+  integrity sha512-lmQ4L+J6mnu3xweP8+rOrUwzmN+MRAj7TgtJtDaXE5PMyX2kCrklhg3rvOsOIfNeAWMQWO2F1GPc1kMD2vLAfw==
 
 uglify-js@^3.1.4:
   version "3.6.0"
