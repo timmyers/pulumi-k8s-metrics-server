@@ -1056,12 +1056,12 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@pulumi/kubernetes@^0.25.6":
-  version "0.25.6"
-  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-0.25.6.tgz#524f0bd3d77ed2804ff34ae375f8670e619a41d7"
-  integrity sha512-h0RH1SRu/wsaYd0Dj9ZW3T0Zzrs0rM3QCbG/0+JtyfOeEWEWyPkFmU3XIr5kMEiVTMpjO0jv/ZFlvHDfusY0og==
+"@pulumi/kubernetes@^1.0.0-beta.1":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-1.1.0.tgz#130e6c91c7da9678f28fc89123d5a2a80730cf23"
+  integrity sha512-YqEgmpYVKF8D0k54/Hy4Sad76fnpDv+MDbw81zV2HNz7l4mViSXzEwZmTfY+nbXysh/zYpiqK12A621AsW17Lg==
   dependencies:
-    "@pulumi/pulumi" "^0.17.18"
+    "@pulumi/pulumi" "^1.0.0"
     "@types/glob" "^5.0.35"
     "@types/js-yaml" "^3.11.2"
     "@types/node-fetch" "^2.1.4"
@@ -1072,10 +1072,10 @@
     shell-quote "^1.6.1"
     tmp "^0.0.33"
 
-"@pulumi/pulumi@^0.17.18", "@pulumi/pulumi@^0.17.28":
-  version "0.17.28"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.17.28.tgz#26f27c0075685b98647263565bfe8bb12adc0542"
-  integrity sha512-pVKahH9Ryl6wIpzdOKjsu2gEshDCA7elB34paJpPXw+3ARViSPri7y/2uTdmMRg36jsbrOdNGEohKJEqIZLioA==
+"@pulumi/pulumi@^1.0.0", "@pulumi/pulumi@^1.0.0-beta.4":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-1.1.0.tgz#d7eb3953206ff25b950069ad325493b9d90256de"
+  integrity sha512-onVOAKo2H1WgyT6v1053CrHNjpoCbyj7Pq4DYORk7Uc6cTFGkI7wJhs7dUDVLlx+RUXSxIo+q4oAHz7bIVWZNw==
   dependencies:
     "@pulumi/query" "^0.3.0"
     deasync "^0.1.15"
@@ -2114,10 +2114,10 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-codecov@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/codecov/-/codecov-3.5.0.tgz#3d0748932f9cb41e1ad7f21fa346ef1b2b1bed47"
-  integrity sha512-/OsWOfIHaQIr7aeZ4pY0UC1PZT6kimoKFOFYFNb6wxo3iw12nRrh+mNGH72rnXxNsq6SGfesVPizm/6Q3XqcFQ==
+codecov@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/codecov/-/codecov-3.6.0.tgz#6915561b7064c064e30a588ea23c1384b14d744b"
+  integrity sha512-d9SEDdgEZ1PDXLY52itsk5pMmxVbqmT4+8OCzmZOHUUOxWpmnPK2Fgz35yYUipT8QqkrDRihIvIJKjRynUdk4g==
   dependencies:
     argv "^0.0.2"
     ignore-walk "^3.0.1"
