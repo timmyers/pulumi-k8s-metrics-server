@@ -38,7 +38,7 @@ export default class Service extends pulumi.ComponentResource {
     }, defaultOptions);
 
     if (args.createApiService) {
-      this.apiService = new k8s.apiregistration.v1beta1.APIService(`metrics-server-${name}`, {
+      this.apiService = new k8s.apiregistration.v1beta1.APIService(`metrics-server`, {
         metadata: {
           name: 'v1beta1.metrics.k8s.io',
           labels: {
