@@ -21,7 +21,7 @@
     "url": "https://github.com/timmyers/pulumi-k8s-metrics-server.git"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
     "@babel/preset-typescript": "^7.3.3",
     "@types/jest": "^24.0.18",
     "codecov": "^3.6.0",
