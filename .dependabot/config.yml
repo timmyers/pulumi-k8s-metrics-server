@@ -10,7 +10,7 @@ update_configs:
           update_type: all
 
   - package_manager: docker
-    directory: /.github/action/
+    directory: /.github/actions/main
     update_schedule: daily
     automerged_updates:
       - match:

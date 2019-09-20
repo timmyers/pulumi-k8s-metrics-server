@@ -63,12 +63,12 @@ const defaults = (args: MetricsServerArgs): MetricsServerArgs => {
   if (args.image === undefined) {
     args.image = { 
       repository: 'gcr.io/google_containers/metrics-server-amd64',
-      tag: 'v0.3.3',
+      tag: 'v0.3.4',
       pullPolicy: 'IfNotPresent',
     }
   } else {
     if (args.image.repository === undefined) args.image.repository = 'gcr.io/google_containers/metrics-server-amd64';
-    if (args.image.tag === undefined) args.image.tag = 'v0.3.3';
+    if (args.image.tag === undefined) args.image.tag = 'v0.3.4';
     if (args.image.pullPolicy === undefined) args.image.pullPolicy = 'IfNotPresent';
   }
 
