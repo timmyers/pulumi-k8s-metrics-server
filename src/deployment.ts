@@ -33,7 +33,7 @@ export default class Deployment extends pulumi.ComponentResource {
 
     const defaultOptions: pulumi.CustomResourceOptions = { parent: this };
 
-    const deployment = new k8s.apps.v1.Deployment(`${name}-deployment`, {
+    const deployment = new k8s.apps.v1.Deployment(`metrics-server-${name}`, {
       metadata: {
         namespace: args.namespace,
         labels: {

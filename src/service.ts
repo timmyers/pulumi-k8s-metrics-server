@@ -17,7 +17,7 @@ export default class Service extends pulumi.ComponentResource {
 
     const defaultOptions: pulumi.CustomResourceOptions = { parent: this };
 
-    this.service = new k8s.core.v1.Service(`${name}-service`, {
+    this.service = new k8s.core.v1.Service(`metrics-server-${name}`, {
       metadata: {
         namespace: args.namespace,
         labels: {
@@ -38,7 +38,7 @@ export default class Service extends pulumi.ComponentResource {
     }, defaultOptions);
 
     if (args.createApiService) {
-      this.apiService = new k8s.apiregistration.v1beta1.APIService(`${name}-apiService`, {
+      this.apiService = new k8s.apiregistration.v1beta1.APIService(`metrics-server-api-${name}`, {
         metadata: {
           name: 'v1beta1.metrics.k8s.io',
           labels: {
