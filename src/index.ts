@@ -60,15 +60,17 @@ const defaults = (args: MetricsServerArgs): MetricsServerArgs => {
     args.podDisruptionBudget = { enabled: false };
   }
 
+  const imageTag = 'v0.3.5';
+
   if (args.image === undefined) {
     args.image = { 
       repository: 'gcr.io/google_containers/metrics-server-amd64',
-      tag: 'v0.3.4',
+      tag: imageTag,
       pullPolicy: 'IfNotPresent',
     }
   } else {
     if (args.image.repository === undefined) args.image.repository = 'gcr.io/google_containers/metrics-server-amd64';
-    if (args.image.tag === undefined) args.image.tag = 'v0.3.4';
+    if (args.image.tag === undefined) args.image.tag = imageTag;
     if (args.image.pullPolicy === undefined) args.image.pullPolicy = 'IfNotPresent';
   }
 
