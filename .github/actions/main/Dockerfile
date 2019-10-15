@@ -1,4 +1,4 @@
-FROM node:12.11.1-alpine
+FROM node:12.12.0-alpine
 
 RUN apk --no-cache add --update \
   git=2.20.1-r0 \
