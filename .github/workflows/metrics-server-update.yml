@@ -2,7 +2,7 @@ name: metrics-server update
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron:  '0 16 * * *'
 
 jobs:
   update:
