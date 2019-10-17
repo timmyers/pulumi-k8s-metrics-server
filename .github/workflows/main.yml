@@ -21,12 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Get latest version
-        run: |
-          yarn
-          yarn build
-          yarn link
-          curl -fsSL https://get.pulumi.com | sh
-          export PATH=$PATH:/home/runner/.pulumi/bin
+        uses: ./.github/actions/metrics-server-version
   kind:
     runs-on: ubuntu-latest
     strategy:
