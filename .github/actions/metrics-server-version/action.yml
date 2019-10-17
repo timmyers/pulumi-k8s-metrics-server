@@ -1,0 +1,12 @@
+name: 'Update metrics-server'
+author: 'Tim Myers'
+description: 'An action to update metrics-server'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'users'
+  color: 'orange'
+outputs:
+  new_version:
+    description: The new version of metrics-server
