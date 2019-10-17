@@ -60,7 +60,7 @@ const defaults = (args: MetricsServerArgs): MetricsServerArgs => {
     args.podDisruptionBudget = { enabled: false };
   }
 
-  const imageTag = 'v0.3.5';
+  const imageTag = 'v0.3.6';
 
   if (args.image === undefined) {
     args.image = { 
