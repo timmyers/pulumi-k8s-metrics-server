@@ -26,6 +26,8 @@ jobs:
         uses: peter-evans/create-pull-request@v1.5.2
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          COMMIT_MESSAGE: 'feat: Update metrics-server version'
+          PULL_REQUEST_TITLE: 'feat: Update metrics-server version'
   kind:
     runs-on: ubuntu-latest
     strategy:
