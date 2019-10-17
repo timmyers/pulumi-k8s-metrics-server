@@ -60,12 +60,12 @@ const defaults = (args: MetricsServerArgs): MetricsServerArgs => {
     args.podDisruptionBudget = { enabled: false };
   }
 
-  const imageTag = 'v0.3.6';
+  const metricsServerImageTag = 'v0.3.6';
 
   if (args.image === undefined) {
     args.image = { 
       repository: 'gcr.io/google_containers/metrics-server-amd64',
-      tag: imageTag,
+      tag: metricsServerImageTag,
       pullPolicy: 'IfNotPresent',
     }
   } else {
