@@ -1,0 +1,22 @@
+name: metrics-server update
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          ref: master
+      - name: Get latest version
+        uses: ./.github/actions/metrics-server-version
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v1.5.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          COMMIT_MESSAGE: 'feat: Update metrics-server version'
+          PULL_REQUEST_TITLE: 'feat: Update metrics-server version'
+          BRANCH_SUFFIX: none
