@@ -24,6 +24,8 @@ jobs:
         uses: ./.github/actions/metrics-server-version
       - name: Create PR
         uses: peter-evans/create-pull-request@v1.5.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
   kind:
     runs-on: ubuntu-latest
     strategy:
