@@ -14,10 +14,11 @@ jobs:
           ref: master
       - name: Get latest version
         uses: ./.github/actions/metrics-server-version
+        id: latest_version
       - name: Create PR
         uses: peter-evans/create-pull-request@v1.5.2
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          COMMIT_MESSAGE: 'feat: Update metrics-server to ${{ env.METRICS_SERVER_NEW_VERSION }}'
-          PULL_REQUEST_TITLE: 'feat: Update metrics-server to ${{ env.METRICS_SERVER_NEW_VERSION }}'
+          COMMIT_MESSAGE: 'feat: Update metrics-server to ${{ steps.latest_version.outputs.new_version }}'
+          PULL_REQUEST_TITLE: 'feat: Update metrics-server to ${{ steps.latest_version.outputs.new_version }}'
           BRANCH_SUFFIX: none
