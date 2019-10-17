@@ -16,6 +16,7 @@ jobs:
   kind:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         kind-node: 
           - kindest/node:v1.15.3@sha256:27e388752544890482a86b90d8ac50fcfa63a2e8656a96ec5337b902ec8e5157
