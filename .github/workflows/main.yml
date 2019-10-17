@@ -22,6 +22,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Get latest version
         uses: ./.github/actions/metrics-server-version
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v1.5.2
   kind:
     runs-on: ubuntu-latest
     strategy:
