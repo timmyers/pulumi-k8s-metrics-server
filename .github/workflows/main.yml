@@ -13,6 +13,20 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  metrics-server-update:
+    runs-on: ubuntu-latest
+    # on:
+    #   schedule:
+    #     - cron: '*/15 * * * *'
+    steps:
+      - uses: actions/checkout@master
+      - name: Get latest version
+        run: |
+          yarn
+          yarn build
+          yarn link
+          curl -fsSL https://get.pulumi.com | sh
+          export PATH=$PATH:/home/runner/.pulumi/bin
   kind:
     runs-on: ubuntu-latest
     strategy:
