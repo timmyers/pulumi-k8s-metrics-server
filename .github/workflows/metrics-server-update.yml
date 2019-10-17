@@ -1,8 +1,9 @@
 name: metrics-server update
 
-on:
-  schedule:
-    - cron: '*/15 * * * *'
+on: [push]
+# on:
+#   schedule:
+#     - cron: '*/15 * * * *'
 
 jobs:
   update:
@@ -17,6 +18,6 @@ jobs:
         uses: peter-evans/create-pull-request@v1.5.2
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          COMMIT_MESSAGE: 'feat: Update metrics-server version'
-          PULL_REQUEST_TITLE: 'feat: Update metrics-server version'
+          COMMIT_MESSAGE: 'feat: Update metrics-server to ${{ env.METRICS_SERVER_NEW_VERSION }}'
+          PULL_REQUEST_TITLE: 'feat: Update metrics-server to ${{ env.METRICS_SERVER_NEW_VERSION }}'
           BRANCH_SUFFIX: none
