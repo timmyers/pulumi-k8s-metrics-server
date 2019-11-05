@@ -31,7 +31,9 @@ jobs:
         run: |
           yarn
           yarn build
-          yarn link
+          yarn global bin
+          yarn global add yalc
+          /home/runner/.yarn/bin/yalc publish
           curl -fsSL https://get.pulumi.com | sh
           export PATH=$PATH:/home/runner/.pulumi/bin
       - name: Run integration tests
@@ -40,10 +42,10 @@ jobs:
           export KUBECONFIG="$(kind get kubeconfig-path)"
           export PATH=$PATH:/home/runner/.pulumi/bin
           export PULUMI_CONFIG_PASSPHRASE=hello
-          yarn link @timmyers/pulumi-k8s-metrics-server
+          /home/runner/.yarn/bin/yalc add @timmyers/pulumi-k8s-metrics-server
           yarn
           pulumi login --local
           pulumi stack init main
-          pulumi up
+          pulumi up -y --skip-preview
           kubectl version
           kubectl get po -n kube-system
