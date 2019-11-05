@@ -31,8 +31,9 @@ jobs:
         run: |
           yarn
           yarn build
+          yarn global bin
           yarn global add yalc
-          yalc publish
+          /usr/local/bin/yalc publish
           # yarn link
           curl -fsSL https://get.pulumi.com | sh
           export PATH=$PATH:/home/runner/.pulumi/bin
@@ -43,7 +44,7 @@ jobs:
           export PATH=$PATH:/home/runner/.pulumi/bin
           export PULUMI_CONFIG_PASSPHRASE=hello
           # yarn link @timmyers/pulumi-k8s-metrics-server
-          yalc add @timmyers/pulumi-k8s-metrics-server
+          /usr/local/binyalc add @timmyers/pulumi-k8s-metrics-server
           yarn
           pulumi login --local
           pulumi stack init main
