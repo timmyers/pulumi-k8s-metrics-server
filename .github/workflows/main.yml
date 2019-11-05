@@ -45,6 +45,6 @@ jobs:
           pulumi login --local
           pulumi stack init main
           pulumi plugin install
-          pulumi up
+          pulumi up -y --skip-preview
           kubectl version
           kubectl get po -n kube-system
