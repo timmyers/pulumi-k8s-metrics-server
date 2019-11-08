@@ -1195,10 +1195,10 @@
     shell-quote "^1.6.1"
     tmp "^0.0.33"
 
-"@pulumi/pulumi@^1.0.0", "@pulumi/pulumi@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-1.5.0.tgz#fdd80d6132ea964e3e55e1a96950d42ceac235dc"
-  integrity sha512-QYsJGWRxL+4r0PXD6INrfmAtutZVYRTrr2DRBH2EP4wOiDU+xiTjt7ewUNJREs2FSLyguQaAoVjIniFcwIgGXA==
+"@pulumi/pulumi@^1.0.0", "@pulumi/pulumi@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-1.5.1.tgz#6450e55769f73e4f782b21bff30513705eadc6ce"
+  integrity sha512-8/X83ouslBuha36ZfxJFtv3VolIMYO/KM0ZLP1JRFDcDrUfGFRdLhiYmnIOYvu9NhmsxplJ5meP6wFvTQ/GygQ==
   dependencies:
     "@pulumi/query" "^0.3.0"
     callback-to-async-iterator "^1.1.1"
@@ -1213,7 +1213,7 @@
     semver "^6.1.0"
     source-map-support "^0.4.16"
     ts-node "^7.0.0"
-    typescript "^3.0.0"
+    typescript "=3.6.3"
     upath "^1.1.0"
 
 "@pulumi/query@^0.3.0":
@@ -7829,7 +7829,12 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.0.0, typescript@^3.7.2:
+typescript@=3.6.3:
+  version "3.6.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.6.3.tgz#fea942fabb20f7e1ca7164ff626f1a9f3f70b4da"
+  integrity sha512-N7bceJL1CtRQ2RiG0AQME13ksR7DiuQh/QehubYcghzv20tnh+MQnQIuJddTmsbqYj+dztchykemz0zFzlvdQw==
+
+typescript@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.2.tgz#27e489b95fa5909445e9fef5ee48d81697ad18fb"
   integrity sha512-ml7V7JfiN2Xwvcer+XAf2csGO1bPBdRbFCkYBczNZggrBZ9c7G3riSUeJmqEU5uOtXNPMhE3n+R4FA/3YOAWOQ==
