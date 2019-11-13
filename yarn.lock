@@ -1195,13 +1195,12 @@
     shell-quote "^1.6.1"
     tmp "^0.0.33"
 
-"@pulumi/pulumi@^1.0.0", "@pulumi/pulumi@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-1.5.1.tgz#6450e55769f73e4f782b21bff30513705eadc6ce"
-  integrity sha512-8/X83ouslBuha36ZfxJFtv3VolIMYO/KM0ZLP1JRFDcDrUfGFRdLhiYmnIOYvu9NhmsxplJ5meP6wFvTQ/GygQ==
+"@pulumi/pulumi@^1.0.0", "@pulumi/pulumi@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-1.5.2.tgz#e721c086d9dc4de015bf63da1ea8cfe382771f52"
+  integrity sha512-bXndJF7pYqDdHHro3YngaEiYHGskJh1GUpmOxi9glTuMMsb/6YiclokxcTnsuZk91Tl+sopke6AHQutXrxjN+A==
   dependencies:
     "@pulumi/query" "^0.3.0"
-    callback-to-async-iterator "^1.1.1"
     deasync "^0.1.15"
     google-protobuf "^3.5.0"
     grpc "1.21.1"
@@ -2001,13 +2000,6 @@ call-limit@~1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/call-limit/-/call-limit-1.1.1.tgz#ef15f2670db3f1992557e2d965abc459e6e358d4"
   integrity sha512-5twvci5b9eRBw2wCfPtN0GmlR2/gadZqyFpPhOK6CvMFoFgA+USnZ6Jpu1lhG9h85pQ3Ouil3PfXWRD4EUaRiQ==
-
-callback-to-async-iterator@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/callback-to-async-iterator/-/callback-to-async-iterator-1.1.1.tgz#110adcde834589bee475415baf0123b6a541c398"
-  integrity sha512-w5uOapjkp/CEizuvBkLl7JyHlQNlxAT7LSr9g4vFjg5AEM5TJvaajjKkgs4kcFFm0fNqFX9D0zEIotllXvNC1Q==
-  dependencies:
-    iterall "^1.0.0"
 
 caller-callsite@^2.0.0:
   version "2.0.0"
@@ -4213,11 +4205,6 @@ istanbul-reports@^2.2.6:
   integrity sha512-SKi4rnMyLBKe0Jy2uUdx28h8oG7ph2PPuQPvIAh31d+Ci+lSiEu4C+h3oBPuJ9+mPKhOyW0M8gY4U5NM1WLeXA==
   dependencies:
     handlebars "^4.1.2"
-
-iterall@^1.0.0:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
-  integrity sha512-yynBb1g+RFUPY64fTrFv7nsjRrENBQJaX2UL+2Szc9REFrSNm1rpSXHGzhmAy7a9uv3vlvgBlXnf9RqmPH1/DA==
 
 java-properties@^1.0.0:
   version "1.0.1"
