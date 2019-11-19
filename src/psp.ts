@@ -11,7 +11,7 @@ export default class Psp extends pulumi.ComponentResource {
 
     const defaultOptions: pulumi.CustomResourceOptions = { parent: this };
 
-    const psp = new k8s.extensions.v1beta1.PodSecurityPolicy(`${name}-podSecurityPolicy`, {
+    const psp = new k8s.extensions.v1beta1.PodSecurityPolicy(name, {
       metadata: {
         name: 'priviledged-metrics-server',
         namespace: args.namespace,
@@ -40,6 +40,9 @@ export default class Psp extends pulumi.ComponentResource {
           max: 65536,
         }],
       },
-    }, defaultOptions);
+    }, {
+      ...defaultOptions,
+      aliases: [{ name: `${name}-podSecurityPolicy`}],
+    });
   }
 }
