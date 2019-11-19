@@ -51,5 +51,3 @@ Clone the repo, then:
 
 ### Running tests
 `yarn test`
-
-_More coming soon_
