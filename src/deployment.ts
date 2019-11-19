@@ -33,7 +33,7 @@ export default class Deployment extends pulumi.ComponentResource {
 
     const defaultOptions: pulumi.CustomResourceOptions = { parent: this };
 
-    const deployment = new k8s.apps.v1.Deployment(`metrics-server-${name}`, {
+    const deployment = new k8s.apps.v1.Deployment(name, {
       metadata: {
         namespace: args.namespace,
         labels: {
@@ -86,13 +86,18 @@ export default class Deployment extends pulumi.ComponentResource {
           },
         },
       }
-    }, defaultOptions);
+    }, {
+      ...defaultOptions,
+      aliases: [{ name: `metrics-server-${name}`}],
+    });
 
     if (args.podDisruptionBudget.enabled) {
-      const pdb = new k8s.policy.v1beta1.PodDisruptionBudget(`${name}-poddisruptionbudget`, 
+      const pdb = new k8s.policy.v1beta1.PodDisruptionBudget(name,
         args.podDisruptionBudget.config,
-        defaultOptions
-      );
+      {
+        ...defaultOptions,
+        aliases: [{ name: `${name}-poddisruptionbudget`}],
+      });
       this.podDisruptionBudget = pdb;
     } else {
       this.podDisruptionBudget = undefined;

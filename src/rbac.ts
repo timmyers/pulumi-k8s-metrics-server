@@ -31,7 +31,7 @@ export default class Rbac extends pulumi.ComponentResource {
       });
     }
 
-    this.clusterRole = new k8s.rbac.v1.ClusterRole(`${name}-clusterRole`, {
+    this.clusterRole = new k8s.rbac.v1.ClusterRole(name, {
       metadata: {
         name: 'system:metrics-server',
         labels: {
@@ -39,9 +39,12 @@ export default class Rbac extends pulumi.ComponentResource {
         }
       },
       rules: clusterRoleRules,
-    }, defaultOptions);
+    }, {
+      ...defaultOptions,
+      aliases: [{ name: `${name}-clusterRole`}],
+    });
 
-    const aggregatedMetricsReaderClusterRole = new k8s.rbac.v1.ClusterRole(`${name}-aggregatedMetricsReaderClusterRole`, {
+    const aggregatedMetricsReaderClusterRole = new k8s.rbac.v1.ClusterRole(`${name}-aggregated`, {
       metadata: {
         name: 'system:metrics-server-aggregated-reader',
         labels: {
@@ -56,9 +59,12 @@ export default class Rbac extends pulumi.ComponentResource {
         resources: ['pods'],
         verbs: ['get', 'list', 'watch']
       }]
-    }, defaultOptions);
+    }, {
+      ...defaultOptions,
+      aliases: [{ name: `${name}-aggregatedMetricsReaderClusterRole`}],
+    });
 
-    this.serviceAccount = new k8s.core.v1.ServiceAccount(`${name}-serviceAccount`, {
+    this.serviceAccount = new k8s.core.v1.ServiceAccount(name, {
       metadata: {
         name: 'metrics-server',
         namespace: args.namespace,
@@ -66,9 +72,12 @@ export default class Rbac extends pulumi.ComponentResource {
           app: name,
         }
       },
-    }, defaultOptions);
+    }, {
+      ...defaultOptions,
+      aliases: [{ name: `${name}-serviceAccount`}],
+    });
 
-    const clusterRoleBinding = new k8s.rbac.v1.ClusterRoleBinding(`${name}-clusterrolebinding`, {
+    const clusterRoleBinding = new k8s.rbac.v1.ClusterRoleBinding(name, {
       metadata: {
         namespace: args.namespace,
         labels: {
@@ -85,9 +94,12 @@ export default class Rbac extends pulumi.ComponentResource {
         name: this.serviceAccount.metadata.name,
         namespace: args.namespace,
       }]
-    }, defaultOptions);
+    }, {
+      ...defaultOptions,
+      aliases: [{ name: `${name}-clusterrolebinding`}],
+    });
 
-    const authDelegatorClusterRoleBinding = new k8s.rbac.v1.ClusterRoleBinding(`${name}-authDelegatorClusterRoleBinding`, {
+    const authDelegatorClusterRoleBinding = new k8s.rbac.v1.ClusterRoleBinding(`${name}-auth`, {
       metadata: {
         name: `${name}:system:auth-delegator`,
         namespace: args.namespace,
@@ -105,9 +117,12 @@ export default class Rbac extends pulumi.ComponentResource {
         name: this.serviceAccount.metadata.name,
         namespace: args.namespace,
       }]
-    }, defaultOptions);
+    }, {
+      ...defaultOptions,
+      aliases: [{ name: `${name}-authDelegatorClusterRoleBinding`}],
+    });
 
-    const roleBinding = new k8s.rbac.v1.RoleBinding(`${name}-rolebinding`, {
+    const roleBinding = new k8s.rbac.v1.RoleBinding(name, {
       metadata: {
         namespace: args.namespace,
         labels: {
@@ -124,7 +139,10 @@ export default class Rbac extends pulumi.ComponentResource {
         name: this.serviceAccount.metadata.name,
         namespace: args.namespace,
       }],
-    }, defaultOptions);
+    }, {
+      ...defaultOptions,
+      aliases: [{ name: `${name}-rolebinding`}],
+    });
 
     this.registerOutputs({
       serviceAccount: this.serviceAccount,
