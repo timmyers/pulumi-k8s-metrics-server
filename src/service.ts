@@ -35,10 +35,7 @@ export default class Service extends pulumi.ComponentResource {
         },
         type: args.type,
       },
-    }, {
-      ...defaultOptions,
-      aliases: [{ name: `metrics-server-${name}`}],
-    });
+    }, defaultOptions);
 
     if (args.createApiService) {
       this.apiService = new k8s.apiregistration.v1beta1.APIService(name, {
@@ -62,7 +59,6 @@ export default class Service extends pulumi.ComponentResource {
       }, {
         ...defaultOptions,
         deleteBeforeReplace: true,
-        aliases: [{ name: `metrics-server-${name}`}],
       });
     } else {
       this.apiService = undefined;
