@@ -39,10 +39,7 @@ export default class Rbac extends pulumi.ComponentResource {
         }
       },
       rules: clusterRoleRules,
-    }, {
-      ...defaultOptions,
-      aliases: [{ name: `${name}-clusterRole`}],
-    });
+    }, defaultOptions);
 
     const aggregatedMetricsReaderClusterRole = new k8s.rbac.v1.ClusterRole(`${name}-aggregated`, {
       metadata: {
@@ -59,10 +56,7 @@ export default class Rbac extends pulumi.ComponentResource {
         resources: ['pods'],
         verbs: ['get', 'list', 'watch']
       }]
-    }, {
-      ...defaultOptions,
-      aliases: [{ name: `${name}-aggregatedMetricsReaderClusterRole`}],
-    });
+    }, defaultOptions);
 
     this.serviceAccount = new k8s.core.v1.ServiceAccount(name, {
       metadata: {
@@ -72,10 +66,7 @@ export default class Rbac extends pulumi.ComponentResource {
           app: name,
         }
       },
-    }, {
-      ...defaultOptions,
-      aliases: [{ name: `${name}-serviceAccount`}],
-    });
+    }, defaultOptions);
 
     const clusterRoleBinding = new k8s.rbac.v1.ClusterRoleBinding(name, {
       metadata: {
@@ -94,10 +85,7 @@ export default class Rbac extends pulumi.ComponentResource {
         name: this.serviceAccount.metadata.name,
         namespace: args.namespace,
       }]
-    }, {
-      ...defaultOptions,
-      aliases: [{ name: `${name}-clusterrolebinding`}],
-    });
+    }, defaultOptions);
 
     const authDelegatorClusterRoleBinding = new k8s.rbac.v1.ClusterRoleBinding(`${name}-auth`, {
       metadata: {
@@ -116,11 +104,8 @@ export default class Rbac extends pulumi.ComponentResource {
         kind: 'ServiceAccount',
         name: this.serviceAccount.metadata.name,
         namespace: args.namespace,
-      }]
-    }, {
-      ...defaultOptions,
-      aliases: [{ name: `${name}-authDelegatorClusterRoleBinding`}],
-    });
+      }],
+    }, defaultOptions);
 
     const roleBinding = new k8s.rbac.v1.RoleBinding(name, {
       metadata: {
@@ -139,10 +124,7 @@ export default class Rbac extends pulumi.ComponentResource {
         name: this.serviceAccount.metadata.name,
         namespace: args.namespace,
       }],
-    }, {
-      ...defaultOptions,
-      aliases: [{ name: `${name}-rolebinding`}],
-    });
+    }, defaultOptions);
 
     this.registerOutputs({
       serviceAccount: this.serviceAccount,

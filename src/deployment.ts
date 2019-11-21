@@ -86,18 +86,13 @@ export default class Deployment extends pulumi.ComponentResource {
           },
         },
       }
-    }, {
-      ...defaultOptions,
-      aliases: [{ name: `metrics-server-${name}`}],
-    });
+    }, defaultOptions);
 
     if (args.podDisruptionBudget.enabled) {
       const pdb = new k8s.policy.v1beta1.PodDisruptionBudget(name,
         args.podDisruptionBudget.config,
-      {
-        ...defaultOptions,
-        aliases: [{ name: `${name}-poddisruptionbudget`}],
-      });
+        defaultOptions,
+      );
       this.podDisruptionBudget = pdb;
     } else {
       this.podDisruptionBudget = undefined;

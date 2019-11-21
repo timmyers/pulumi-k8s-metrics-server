@@ -40,9 +40,6 @@ export default class Psp extends pulumi.ComponentResource {
           max: 65536,
         }],
       },
-    }, {
-      ...defaultOptions,
-      aliases: [{ name: `${name}-podSecurityPolicy`}],
-    });
+    }, defaultOptions);
   }
 }
