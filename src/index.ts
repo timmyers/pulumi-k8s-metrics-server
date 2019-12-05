@@ -29,6 +29,8 @@ export interface MetricsServerArgs {
   livenessProbe?: kubeTypes.core.v1.Probe;
   readinessProbe?: kubeTypes.core.v1.Probe;
   securityContext?: kubeTypes.core.v1.SecurityContext;
+  command?: pulumi.Input<pulumi.Input<string>[]>;
+  resources?: pulumi.Input<kubeTypes.core.v1.ResourceRequirements>
   // deployment: DeploymentArgs;
 }
 
@@ -160,6 +162,8 @@ export default class K8sMetricsServer extends pulumi.ComponentResource {
       livenessProbe: args.livenessProbe,
       readinessProbe: args.readinessProbe,
       podDisruptionBudget: args.podDisruptionBudget,
+      command: args.command,
+      resources: args.resources,
     }, defaultOptions);
 
     const service = new Service(name, {
