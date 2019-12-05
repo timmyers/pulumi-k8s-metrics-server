@@ -22,6 +22,8 @@ export interface DeploymentArgs {
     pullPolicy: pulumi.Input<string>;
   };
   podDisruptionBudget: PodDisruptionBudgetArgs;
+  command?: pulumi.Input<pulumi.Input<string>[]>;
+  resources?: pulumi.Input<kubeTypes.core.v1.ResourceRequirements>
 }
 
 export default class Deployment extends pulumi.ComponentResource {
@@ -62,7 +64,8 @@ export default class Deployment extends pulumi.ComponentResource {
               securityContext: args.securityContext,
               image: `${args.image.repository}:${args.image.tag}`,
               imagePullPolicy: args.image.pullPolicy,
-              command: [
+              resources: args.resources,
+              command: args.command || [
                 '/metrics-server',
                 '--cert-dir=/tmp',
                 '--logtostderr',
