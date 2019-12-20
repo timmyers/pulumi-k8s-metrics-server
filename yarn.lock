@@ -1118,10 +1118,10 @@
     shell-quote "^1.6.1"
     tmp "^0.0.33"
 
-"@pulumi/pulumi@^1.6.0", "@pulumi/pulumi@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-1.8.0.tgz#79dfd2f0d38c6d9aa5b96df0146cb6cdd546996c"
-  integrity sha512-ATMJFfFzJSpmOICw0F1RC8vHJy7z5D/ErOLLFGt0hMC9MNFcdzdK6rY3YRV1kUZWU8jVrw1vlAPf3Qe+sL7zuA==
+"@pulumi/pulumi@^1.6.0", "@pulumi/pulumi@^1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-1.8.1.tgz#02d1a2b98e1c873792868d378360a569454b6c01"
+  integrity sha512-YECXh3TRCl21QYpvUrzGDGBVqZBr3V053x1chXnt/7+FgwxM5M1cpH3T7kQX44+z7crvIqvQ7FbngNpgCHKa1Q==
   dependencies:
     "@pulumi/query" "^0.3.0"
     deasync "^0.1.15"
