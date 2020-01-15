@@ -27,7 +27,7 @@
     "codecov": "^3.6.1",
     "cz-conventional-changelog": "^3.0.2",
     "jest": "^24.9.0",
-    "semantic-release": "^16.0.1"
+    "semantic-release": "^16.0.2"
   },
   "config": {
     "commitizen": {
