@@ -1231,10 +1231,10 @@
     shell-quote "^1.6.1"
     tmp "^0.0.33"
 
-"@pulumi/pulumi@^1.6.0", "@pulumi/pulumi@^1.8.1":
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-1.8.1.tgz#02d1a2b98e1c873792868d378360a569454b6c01"
-  integrity sha512-YECXh3TRCl21QYpvUrzGDGBVqZBr3V053x1chXnt/7+FgwxM5M1cpH3T7kQX44+z7crvIqvQ7FbngNpgCHKa1Q==
+"@pulumi/pulumi@^1.6.0", "@pulumi/pulumi@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-1.9.0.tgz#1661b5f8f84f17b050335cba5ebdbb704746f44e"
+  integrity sha512-NzLO6Q9A6MfrpnJn1nr4+ZH6B4TWpPlbAAtcbUXzGuva2g+I4f7V1Sx9VJt6oG665G53AanDu6WppOA58Ge2Gg==
   dependencies:
     "@pulumi/query" "^0.3.0"
     deasync "^0.1.15"
@@ -1247,7 +1247,7 @@
     require-from-string "^2.0.1"
     semver "^6.1.0"
     source-map-support "^0.4.16"
-    ts-node "^8.5.4"
+    ts-node "8.5.4"
     typescript "~3.7.3"
     upath "^1.1.0"
 
@@ -8136,7 +8136,7 @@ trim-right@^1.0.1:
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
 
-ts-node@^8.5.4:
+ts-node@8.5.4:
   version "8.5.4"
   resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-8.5.4.tgz#a152add11fa19c221d0b48962c210cf467262ab2"
   integrity sha512-izbVCRV68EasEPQ8MSIGBNK9dc/4sYJJKYA+IarMQct1RtEot6Xp0bXuClsbUSnKpg50ho+aOAx8en5c+y4OFw==
