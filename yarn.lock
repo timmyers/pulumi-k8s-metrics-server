@@ -1215,10 +1215,10 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@pulumi/kubernetes@^1.4.4":
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-1.4.4.tgz#f2ec2c551789d84c10628e2cc3c4e1e32232c24e"
-  integrity sha512-/Q5/i2l0X/pijmc1k1ZHV30PHvQzHL0UO/acWd1TAVl/hCJm+1LJO5BJiLeLt3rdfGj03W5o6oKNz2KLZOrwHA==
+"@pulumi/kubernetes@^1.4.5":
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-1.4.5.tgz#49f49e228a92d5be31f7b0901de203848c93a995"
+  integrity sha512-DlwYbSJ+YxchgpaQxhZsA3hyPFu7S6x7b+T0NxTQm4rllypCzv9td055LsUrF7ZRBt9xH3I6dF0TXLxeOeComg==
   dependencies:
     "@pulumi/pulumi" "^1.6.0"
     "@types/glob" "^5.0.35"
