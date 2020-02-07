@@ -1206,18 +1206,16 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@pulumi/kubernetes@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-1.5.0.tgz#b523443e8635943b3a2bbd9c359c53530ea09c66"
-  integrity sha512-zTj2QnM5020Vc1l9ZFcFFgzHuNz6Ogke57C5UOd9ZfNcWPEgxk0Md+f5UuW5nTVS3mL3RAaBM6XgNX8M+dlLAg==
+"@pulumi/kubernetes@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-1.5.1.tgz#10a023acdb2c762f1cfdd9448224af8f85604e4a"
+  integrity sha512-X9XWiAddYWCAwuxmTzUvpF7pX4KakOlgNQa++HttccoaRc4aWvK6RkyixMnsukkg+ti3FTJo0+CX1ic+g8Y9Cw==
   dependencies:
     "@pulumi/pulumi" "^1.8.1"
     "@types/glob" "^5.0.35"
-    "@types/js-yaml" "^3.11.2"
     "@types/node-fetch" "^2.1.4"
     "@types/tmp" "^0.0.33"
     glob "^7.1.2"
-    js-yaml "^3.12.0"
     node-fetch "^2.3.0"
     shell-quote "^1.6.1"
     tmp "^0.0.33"
@@ -1425,11 +1423,6 @@
   dependencies:
     jest-diff "^25.1.0"
     pretty-format "^25.1.0"
-
-"@types/js-yaml@^3.11.2":
-  version "3.12.1"
-  resolved "https://registry.yarnpkg.com/@types/js-yaml/-/js-yaml-3.12.1.tgz#5c6f4a1eabca84792fbd916f0cb40847f123c656"
-  integrity sha512-SGGAhXLHDx+PK4YLNcNGa6goPf9XRWQNAUUbffkwVGGXIxmDKWyGGL4inzq2sPmExu431Ekb9aEMn9BkPqEYFA==
 
 "@types/long@*", "@types/long@^4.0.0":
   version "4.0.0"
@@ -4777,7 +4770,7 @@ jest@^25.1.0:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-js-yaml@3.13.1, js-yaml@^3.12.0, js-yaml@^3.13.1:
+js-yaml@3.13.1, js-yaml@^3.13.1:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
