@@ -1206,12 +1206,12 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@pulumi/kubernetes@^1.5.4":
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-1.5.4.tgz#59e3de24c1a6cbd6bccfdc7e0caf37c607100d99"
-  integrity sha512-wMZYhiOkPBfiipnxPaghkvKQ6dw6gRFiDOIi2/hR2lZ5e56p3Enn53SRVS/eQRO3SK1182Kdr19mmfdz9yjhcg==
+"@pulumi/kubernetes@^1.5.5":
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-1.5.5.tgz#29280744e823a19e82442671936a3ac911afb1e2"
+  integrity sha512-mLzxOb1O5H60CjuKf2ifFPjQzqpsqrRYG8Qe67uUqt63EwkKAA/G8Ce0AqbAqhtFY9bp6OTcBbqEXHUoMGhPxA==
   dependencies:
-    "@pulumi/pulumi" "^1.8.1"
+    "@pulumi/pulumi" "^1.11.0"
     "@types/glob" "^5.0.35"
     "@types/node-fetch" "^2.1.4"
     "@types/tmp" "^0.0.33"
@@ -1220,7 +1220,7 @@
     shell-quote "^1.6.1"
     tmp "^0.0.33"
 
-"@pulumi/pulumi@^1.11.0", "@pulumi/pulumi@^1.8.1":
+"@pulumi/pulumi@^1.11.0":
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-1.11.0.tgz#d76d9f2770f2f4b9cdadeffa893c7c5baebfb5f2"
   integrity sha512-dHphORt3tnA1qsk65vk1lX85ETtfLgPsyrwFWLZgxO+QuA4EcnW1HExFhUutexssZyAsmR4/Y275H6EMVQWfhA==
