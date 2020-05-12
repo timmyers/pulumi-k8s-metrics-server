@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "@pulumi/kubernetes": "^2.1.1",
-    "@pulumi/pulumi": "^2.1.0",
+    "@pulumi/pulumi": "^2.1.1",
     "typescript": "^3.8.3"
   },
   "scripts": {
