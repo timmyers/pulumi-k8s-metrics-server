@@ -1344,10 +1344,10 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@pulumi/kubernetes@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-2.1.1.tgz#914282e41c55630ce43130e94b324c4d0c3a5cd6"
-  integrity sha512-3BcP8aLp8kfeVw8JG5VtYbWx9F/qbm50SUES8RX5nojGOyTzaZHnPIVAj1dljGg1rAjFQsVn7MvevTFazUQ8hQ==
+"@pulumi/kubernetes@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-2.2.0.tgz#3fd24f69608f65f08f3d565075fd4df3cd14fd56"
+  integrity sha512-1qbUD0kx5TWPykRd/WZw9g/RI2+JeatBSHALs58dGgclajLapjJiWrmbweQxEaDQ31O21RbixbDLcIWXPCenSg==
   dependencies:
     "@pulumi/pulumi" "^2.0.0"
     "@types/glob" "^5.0.35"
