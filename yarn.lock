@@ -1468,10 +1468,10 @@
     shell-quote "^1.6.1"
     tmp "^0.0.33"
 
-"@pulumi/pulumi@^2.0.0", "@pulumi/pulumi@^2.9.0":
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.9.0.tgz#5841f10792ce65b592b170c0a67e4d8aef1a63f9"
-  integrity sha512-KyknfBmwh1Wtisy6IHQ2jspvmeV/t4fFIS6bfy2zvWkmDO/Vn6FA3k1LlEJg91swswTmMdLrhwqygk3WUx+5Yw==
+"@pulumi/pulumi@^2.0.0", "@pulumi/pulumi@^2.10.1":
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.10.1.tgz#a527fd63bd8e67df6abefcce15311ccde801188a"
+  integrity sha512-kBO3ZPOF1153G5/rt3slJ43lCoFF7RkKoZW1QT2bX+wJj8FLrm6MgXIsT69Xs3HBM7ixsnDhGFiQ3Tna6j2ajQ==
   dependencies:
     "@grpc/grpc-js" "^0.6.15"
     "@pulumi/query" "^0.3.0"
