@@ -1,4 +1,4 @@
-FROM node:14.8.0-alpine
+FROM node:15.0.0-alpine
 
 RUN apk --no-cache add --update \
   git \
