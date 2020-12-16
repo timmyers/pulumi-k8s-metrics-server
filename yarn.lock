@@ -1454,12 +1454,12 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@pulumi/kubernetes@^2.5.0":
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-2.5.0.tgz#021dad2018e6d645d2cc4f3d2d36e4ddd520c1e3"
-  integrity sha512-rvA6Hs9lEsGM9SEQXsiQybiBN/V12+4YHrhd1LT7UxWO9daqwbZ2jH/8il5qMZcyl5nUNi85Wks7b2qVVZXyIA==
+"@pulumi/kubernetes@^2.7.5":
+  version "2.7.5"
+  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-2.7.5.tgz#7690b52dc9a24db220532f085e1618d31d48d6d1"
+  integrity sha512-BoD5qi6UmO9/liCcybYCz/nnciAgXtH3Chj9T+2nyr4a0U74y2//OOovtwME5XPn6cMHjzs5KNPZmGDn2yRVsA==
   dependencies:
-    "@pulumi/pulumi" "^2.0.0"
+    "@pulumi/pulumi" "^2.15.0"
     "@types/glob" "^5.0.35"
     "@types/node-fetch" "^2.1.4"
     "@types/tmp" "^0.0.33"
@@ -1468,14 +1468,15 @@
     shell-quote "^1.6.1"
     tmp "^0.0.33"
 
-"@pulumi/pulumi@^2.0.0", "@pulumi/pulumi@^2.9.0":
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.9.0.tgz#5841f10792ce65b592b170c0a67e4d8aef1a63f9"
-  integrity sha512-KyknfBmwh1Wtisy6IHQ2jspvmeV/t4fFIS6bfy2zvWkmDO/Vn6FA3k1LlEJg91swswTmMdLrhwqygk3WUx+5Yw==
+"@pulumi/pulumi@^2.15.0", "@pulumi/pulumi@^2.9.0":
+  version "2.15.6"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-2.15.6.tgz#2c4d6f4a66a97d0bdfaa79249cda9094ee8d79ee"
+  integrity sha512-q3kN6FPyMnND0X4XViyGN+MjGaM4OlSq60/gr2gE+SoNtcVsxw5DyaESE3cG+Wi13zzlz+ouFEd2nQ95Q4btkQ==
   dependencies:
     "@grpc/grpc-js" "^0.6.15"
     "@pulumi/query" "^0.3.0"
     google-protobuf "^3.5.0"
+    js-yaml "^3.14.0"
     minimist "^1.2.0"
     normalize-package-data "^2.4.0"
     protobufjs "^6.8.6"
@@ -5082,6 +5083,14 @@ js-yaml@3.13.1, js-yaml@^3.13.1:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
+
+js-yaml@^3.14.0:
+  version "3.14.1"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.1.tgz#dae812fdb3825fa306609a8717383c50c36a0537"
+  integrity sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
